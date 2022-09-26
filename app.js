@@ -14,7 +14,9 @@ const sequelize = require('./util/database');
 const User = require('./models/users');
 
 
+
 const userRoutes = require('./routes/user')
+const expenseRoutes =  require  ('./routes/expense')
 
 
 const app = express();
@@ -27,10 +29,13 @@ app.use(express.json());  //this is for handling jsons
 
 
 app.use('/user', userRoutes)
+app.use('/expense',expenseRoutes)
+
+
 
 
 sequelize
-// .sync({ force: true })
+//.sync({ force: true })
 .sync()
     .then(() => {
          
